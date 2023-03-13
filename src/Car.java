@@ -1,16 +1,47 @@
-public interface Car {
+import CarFactories.CarFactory;
+import CarParts.CarBody;
+import CarParts.CarEngine;
+import CarParts.CarSeat;
+import CarParts.CarWheels;
 
-    String getName();
+public class Car {
 
-    Car drive();
+    private final CarBody carBody;
+    private final CarEngine carEngine;
+    private final CarSeat carSeat;
+    private final CarWheels carWheels;
 
-    Car stop();
+    public Car(CarFactory carFactory) {
+        System.out.println("Creating new car of a certain type.");
+        carBody = carFactory.createBody();
+        carEngine = carFactory.createEngine();
+        carSeat = carFactory.createSeats();
+        carWheels = carFactory.createWheels();
+    }
 
-    Car power();
+    public CarBody getCarBody() {
+        return carBody;
+    }
 
-    Car wheelDrive();
+    public CarEngine getCarEngine() {
+        return carEngine;
+    }
 
-    Car transmission();
+    public CarSeat getCarSeat() {
+        return carSeat;
+    }
 
-    Car engineCapacity();
+    public CarWheels getCarWheels() {
+        return carWheels;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "carBody=" + carBody +
+                ", carEngine=" + carEngine +
+                ", carSeat=" + carSeat +
+                ", carWheels=" + carWheels +
+                '}';
+    }
 }

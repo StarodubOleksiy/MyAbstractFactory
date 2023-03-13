@@ -1,20 +1,41 @@
+import CarFactories.CarFactory;
+import CarFactories.CarFactoryImplementation.FordFactory;
+import CarFactories.CarFactoryImplementation.LadaFactory;
+import CarFactories.CarFactoryImplementation.MercedesFactory;
+import CarFactories.CarFactoryImplementation.PeugeotFactory;
+
 public class Main {
 
+    private Car newCar;
+
+    public static Car creatingNewCar(String carName) {
+        CarFactory carFactory;
+        switch (carName.toLowerCase()) {
+
+            case "ford":
+                carFactory = new FordFactory();
+                break;
+            case "mercedes":
+                carFactory = new MercedesFactory();
+                break;
+            case "lada":
+                carFactory = new LadaFactory();
+                break;
+            default:
+                carFactory = new PeugeotFactory();
+                break;
+        }
+                return new Car(carFactory);
+    }
 
     public static void main(String[] args) {
-        Car ford = CarFactory.createCarOfTheFirstCategory(Ford.class);
-        ford.drive().stop().engineCapacity().power().transmission().wheelDrive();
-        System.out.println("Name of the car is: " + ford.getName());
-        Car mercedes = CarFactory.createCarOfTheFirstCategory(Mercedes.class);
-        mercedes.drive().stop().engineCapacity().power().transmission().wheelDrive();
-        System.out.println("Name of the car is: " + mercedes.getName());
-      //  FirstClassCar lada = CarFactory.createCarOfTheFirstCategory(Lada.class); Compilation Error
-        Car lada = CarFactory.createCarOfTheSecondCategory(Lada.class);
-        lada.drive().stop().engineCapacity().power().transmission().wheelDrive();
-        System.out.println("Name of the car is: " + lada.getName());
-       // FirstClassCar peugeot = CarFactory.createCarOfTheFirstCategory(Peugeot.class); Compilation Error
-        Car peugeot = CarFactory.createCarOfTheSecondCategory(Peugeot.class);
-        peugeot.drive().stop().engineCapacity().power().transmission().wheelDrive();
-        System.out.println("Name of the car is: " + peugeot.getName());
+        Car ford  = creatingNewCar("ford");
+        System.out.println(ford);
+        Car mercedes  = creatingNewCar("mercedes");
+        System.out.println(mercedes);
+        Car lada  = creatingNewCar("lada");
+        System.out.println(lada);
+        Car peugeot  = creatingNewCar("peugeot");
+        System.out.println(peugeot);
     }
 }
