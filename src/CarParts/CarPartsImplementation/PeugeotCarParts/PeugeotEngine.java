@@ -1,6 +1,7 @@
 package CarParts.CarPartsImplementation.PeugeotCarParts;
 
 import CarParts.CarEngine;
+import Parameters.Details;
 
 public class PeugeotEngine implements CarEngine {
 
@@ -8,6 +9,12 @@ public class PeugeotEngine implements CarEngine {
 
     public PeugeotEngine() {
         this.name = "Peugeot engine";
+    }
+
+    @Override
+    public CarEngine setDetails(Details details)
+    {
+        return this;
     }
 
     @Override

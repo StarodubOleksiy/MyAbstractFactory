@@ -1,18 +1,10 @@
 package CarFactories.CarFactoryImplementation;
 
 import CarFactories.CarFactory;
-import CarParts.CarBody;
-import CarParts.CarEngine;
-import CarParts.CarPartsImplementation.FordCarParts.FordBody;
-import CarParts.CarPartsImplementation.FordCarParts.FordEngine;
-import CarParts.CarPartsImplementation.FordCarParts.FordSeat;
-import CarParts.CarPartsImplementation.FordCarParts.FordWheels;
 import CarParts.CarPartsImplementation.MercedesCarParts.MercedesBody;
 import CarParts.CarPartsImplementation.MercedesCarParts.MercedesEngine;
 import CarParts.CarPartsImplementation.MercedesCarParts.MercedesSeat;
 import CarParts.CarPartsImplementation.MercedesCarParts.MercedesWheels;
-import CarParts.CarSeat;
-import CarParts.CarWheels;
 
 public class MercedesFactory implements CarFactory {
 

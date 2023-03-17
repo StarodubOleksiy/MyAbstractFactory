@@ -1,24 +1,21 @@
 package CarFactories.CarFactoryImplementation;
 
 import CarFactories.CarFactory;
+import CarParts.CarEngine;
 import CarParts.CarPartsImplementation.FordCarParts.*;
-import CarParts.CarPartsImplementation.FordCarParts.engineimplementations.FordEngineFirstType;
-import Parameters.Parameters;
-import Parameters.FordParameters;
-import CarParts.CarPartsImplementation.FordCarParts.engineimplementations.FordEngineSecondType;
-
-import static Enums.FordEngines.FordEngineFirstType;
+import Enums.FordEngines;
+import Parameters.Details;
 
 public class FordFactory implements CarFactory {
 
-    Parameters parameters;
+    private Details details;
 
     public FordFactory() {
         System.out.println("Creating Ford car");
     }
 
-    public FordFactory(Parameters parameters) {
-        this.parameters = parameters;
+    public FordFactory(Details details) {
+        this.details = details;
         System.out.println("Creating Ford car");
     }
 
@@ -29,12 +26,10 @@ public class FordFactory implements CarFactory {
     }
 
     @Override
-    public FordEngine createEngine() {
+    public CarEngine createEngine() {
         System.out.println("Creating engine for Ford car");
-        if (parameters.getFordEngine() == FordEngineFirstType)
-            return new FordEngineFirstType();
-        else return new FordEngineFirstType();
-    }
+            return FordEngines.createFordEngine(details.getEngine()).setDetails(details);
+          }
 
     @Override
     public FordSeat createSeats() {

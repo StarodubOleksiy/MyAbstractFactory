@@ -1,19 +1,41 @@
 package Enums;
 
 import CarParts.CarEngine;
-import CarParts.CarPartsImplementation.FordCarParts.FordEngine;
-import CarParts.CarPartsImplementation.FordCarParts.engineimplementations.FordEngineFirstType;
-import CarParts.CarPartsImplementation.FordCarParts.engineimplementations.FordEngineSecondType;
+import CarParts.CarPartsImplementation.FordCarParts.fordEngines.FordEngineFirstType;
+import CarParts.CarPartsImplementation.FordCarParts.fordEngines.FordEngineSecondType;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Optional;
 
 public enum FordEngines {
-    FordEngineFirstType, FordEngineSecondType;
+    FordEngineFirstType("FordEngineFirstType", new FordEngineFirstType()),
+    FordEngineSecondType("FordEngineSecondType", new FordEngineSecondType());
 
-    public static CarEngine getFordEngine(FordEngines engine) {
-        switch (engine) {
-            case FordEngineFirstType:
-                return new FordEngineFirstType();
-            default:
-                return new FordEngineSecondType();
-        }
+    private String name;
+
+    private CarEngine engineType;
+
+
+    FordEngines(String name, CarEngine engine) {
+        this.name = name;
+        this.engineType = engine;
     }
+
+    public String getName() {
+        return name;
     }
+
+    public CarEngine getEngineType() {
+        return engineType;
+    }
+
+    public static CarEngine createFordEngine(String nameOfEngine) {
+        return Arrays.asList(FordEngines.values()).stream()
+                .filter(engine -> engine.getName().equals(nameOfEngine))
+                .findFirst().map(FordEngines::getEngineType).
+                        orElseThrow(() ->new NullPointerException("There is no such engine"));
+    }
+
+
+}

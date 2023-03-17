@@ -1,6 +1,7 @@
 package CarParts.CarPartsImplementation.LadaCarParts;
 
 import CarParts.CarEngine;
+import Parameters.Details;
 
 public class LadaEngine implements CarEngine {
 
@@ -8,6 +9,14 @@ public class LadaEngine implements CarEngine {
 
     public LadaEngine() {
         this.name = "Lada engine";
+    }
+
+
+
+    @Override
+    public CarEngine setDetails(Details details)
+    {
+        return this;
     }
 
 

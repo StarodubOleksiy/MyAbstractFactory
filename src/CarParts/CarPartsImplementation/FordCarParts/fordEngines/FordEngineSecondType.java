@@ -1,13 +1,19 @@
-package CarParts.CarPartsImplementation.FordCarParts.engineimplementations;
+package CarParts.CarPartsImplementation.FordCarParts.fordEngines;
 
-import CarParts.CarPartsImplementation.FordCarParts.FordEngine;
+import CarParts.CarEngine;
+import Parameters.Details;
 
-public class FordEngineSecondType implements FordEngine {
+public class FordEngineSecondType implements CarEngine {
 
     private String name;
 
     public FordEngineSecondType() {
         this.name = "Ford engine of the second type";
+    }
+
+    @Override
+    public CarEngine setDetails(Details details) {
+        return this;
     }
 
     @Override

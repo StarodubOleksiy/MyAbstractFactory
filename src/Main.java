@@ -3,21 +3,19 @@ import CarFactories.CarFactoryImplementation.FordFactory;
 import CarFactories.CarFactoryImplementation.LadaFactory;
 import CarFactories.CarFactoryImplementation.MercedesFactory;
 import CarFactories.CarFactoryImplementation.PeugeotFactory;
-import CarParts.CarPartsImplementation.FordCarParts.engineimplementations.FordEngineFirstType;
 import Enums.FordEngines;
-import Parameters.Parameters;
-import Parameters.FordParameters;
+import Parameters.Details;
 
 public class Main {
 
     private Car newCar;
 
-    public static Car creatingNewCar(String carName, Parameters parameters) {
+    public static Car creatingNewCar(String carName, Details details) {
         CarFactory carFactory;
         switch (carName.toLowerCase()) {
 
             case "ford":
-                carFactory = new FordFactory(parameters);//Here is compilation Error
+                carFactory = new FordFactory(details);//Here is compilation Error
                 break;
             case "mercedes":
                 carFactory = new MercedesFactory();
@@ -33,15 +31,21 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Parameters fordParameters = new Parameters();
-        fordParameters.setEngine(FordEngines.FordEngineFirstType);
-        Car ford  = creatingNewCar("ford",fordParameters);
+        Details fordDetails = new Details();
+        fordDetails.setEngine(FordEngines.FordEngineFirstType);
+        Car ford  = creatingNewCar("ford", fordDetails);
         System.out.println(ford);
-        Car mercedes  = creatingNewCar("mercedes",fordParameters);
+        fordDetails.setEngine(FordEngines.FordEngineSecondType);
+        Car secondFord  = creatingNewCar("ford", fordDetails);
+        System.out.println(secondFord);
+        Car mercedes  = creatingNewCar("mercedes", fordDetails);
         System.out.println(mercedes);
-        Car lada  = creatingNewCar("lada",fordParameters);
+        Car lada  = creatingNewCar("lada", fordDetails);
         System.out.println(lada);
-        Car peugeot  = creatingNewCar("peugeot",fordParameters);
+        Car peugeot  = creatingNewCar("peugeot", fordDetails);
         System.out.println(peugeot);
+        //fordDetails.setEngine();
+       // Car thirdFord  = creatingNewCar("ford", fordDetails);
+       // System.out.println(ford);
     }
 }

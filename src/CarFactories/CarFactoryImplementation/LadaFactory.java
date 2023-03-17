@@ -1,18 +1,10 @@
 package CarFactories.CarFactoryImplementation;
 
 import CarFactories.CarFactory;
-import CarParts.CarBody;
-import CarParts.CarEngine;
-import CarParts.CarPartsImplementation.FordCarParts.FordBody;
-import CarParts.CarPartsImplementation.FordCarParts.FordEngine;
-import CarParts.CarPartsImplementation.FordCarParts.FordSeat;
-import CarParts.CarPartsImplementation.FordCarParts.FordWheels;
 import CarParts.CarPartsImplementation.LadaCarParts.LadaBody;
 import CarParts.CarPartsImplementation.LadaCarParts.LadaEngine;
 import CarParts.CarPartsImplementation.LadaCarParts.LadaSeat;
 import CarParts.CarPartsImplementation.LadaCarParts.LadaWheels;
-import CarParts.CarSeat;
-import CarParts.CarWheels;
 
 public class LadaFactory implements CarFactory {
 
