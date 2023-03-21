@@ -1,8 +1,5 @@
 package CarParts;
 
-public interface CarSeat {
+public interface CarSeat extends CarSparePart {
 
-    String getName();
-
-    String toString();
 }

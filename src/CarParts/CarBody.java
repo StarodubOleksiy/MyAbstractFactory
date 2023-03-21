@@ -1,8 +1,8 @@
 package CarParts;
 
-public interface CarBody {
+import Parameters.Details;
 
-    String getName();
+public interface CarBody extends CarSparePart {
 
-    String toString();
+    CarBody setDetails(Details details);
 }

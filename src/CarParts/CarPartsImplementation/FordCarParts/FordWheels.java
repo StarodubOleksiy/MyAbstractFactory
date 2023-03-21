@@ -1,6 +1,7 @@
 package CarParts.CarPartsImplementation.FordCarParts;
 
 import CarParts.CarWheels;
+import Parameters.Details;
 
 public class FordWheels implements CarWheels {
 
@@ -15,6 +16,12 @@ public class FordWheels implements CarWheels {
     public String getName() {
         return name;
     }
+
+    @Override
+    public FordWheels setDetails(Details details) {
+        return this;
+    }
+
 
     @Override
     public String toString() {

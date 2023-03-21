@@ -1,14 +1,14 @@
-package CarParts.CarPartsImplementation.FordCarParts.fordEngines;
+package CarParts.CarPartsImplementation.MercedesCarParts.mercedesEngines;
 
 import CarParts.CarEngine;
 import Parameters.Details;
 
-public class FordEngineSecondType implements CarEngine {
+public class MercedesEngineSecondType implements CarEngine {
 
     private String name;
 
-    public FordEngineSecondType() {
-        this.name = "Ford engine of the second type2.";
+    public MercedesEngineSecondType() {
+        this.name = "Mercedes engine of the second type2.";
     }
 
     @Override
@@ -23,7 +23,7 @@ public class FordEngineSecondType implements CarEngine {
 
     @Override
     public String toString() {
-        return "FordEngine{" +
+        return "MercedesEngineSecondType{" +
                 "name='" + name + '\'' +
                 '}';
     }

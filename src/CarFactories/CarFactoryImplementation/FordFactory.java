@@ -3,6 +3,7 @@ package CarFactories.CarFactoryImplementation;
 import CarFactories.CarFactory;
 import CarParts.CarEngine;
 import CarParts.CarPartsImplementation.FordCarParts.*;
+import Enums.Engines;
 import Enums.FordEngines;
 import Parameters.Details;
 
@@ -28,8 +29,8 @@ public class FordFactory implements CarFactory {
     @Override
     public CarEngine createEngine() {
         System.out.println("Creating engine for Ford car");
-            return FordEngines.createFordEngine(details.getEngine()).setDetails(details);
-          }
+        return Engines.createEngine(FordEngines.values(), details.getEngine()).setDetails(details);
+    }
 
     @Override
     public FordSeat createSeats() {

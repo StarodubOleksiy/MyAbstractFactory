@@ -1,10 +1,13 @@
 package CarFactories.CarFactoryImplementation;
 
 import CarFactories.CarFactory;
-import CarParts.CarPartsImplementation.LadaCarParts.LadaBody;
+import CarParts.CarBody;
 import CarParts.CarPartsImplementation.LadaCarParts.LadaEngine;
 import CarParts.CarPartsImplementation.LadaCarParts.LadaSeat;
 import CarParts.CarPartsImplementation.LadaCarParts.LadaWheels;
+import Enums.Bodies;
+import Enums.LadaBodies;
+import Parameters.Details;
 
 public class LadaFactory implements CarFactory {
 
@@ -12,11 +15,18 @@ public class LadaFactory implements CarFactory {
         System.out.println("Creating Lada car");
     }
 
+    private Details details;
+
+    public LadaFactory(Details details) {
+        this.details = details;
+        System.out.println("Creating Ford car");
+    }
+
     @Override
-    public LadaBody createBody()
+    public CarBody createBody()
     {
         System.out.println("Creating body for Lada car");
-        return new LadaBody();
+        return Bodies.createBody(LadaBodies.values(), details.getBody()).setDetails(details);
     }
 
     @Override

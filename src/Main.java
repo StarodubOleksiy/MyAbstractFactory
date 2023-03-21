@@ -4,6 +4,8 @@ import CarFactories.CarFactoryImplementation.LadaFactory;
 import CarFactories.CarFactoryImplementation.MercedesFactory;
 import CarFactories.CarFactoryImplementation.PeugeotFactory;
 import Enums.FordEngines;
+import Enums.LadaBodies;
+import Enums.MercedesEngines;
 import Parameters.Details;
 
 public class Main {
@@ -18,10 +20,10 @@ public class Main {
                 carFactory = new FordFactory(details);//Here is compilation Error
                 break;
             case "mercedes":
-                carFactory = new MercedesFactory();
+                carFactory = new MercedesFactory(details);
                 break;
             case "lada":
-                carFactory = new LadaFactory();
+                carFactory = new LadaFactory(details);
                 break;
             default:
                 carFactory = new PeugeotFactory();
@@ -38,10 +40,20 @@ public class Main {
         fordDetails.setEngine(FordEngines.FordEngineSecondType);
         Car secondFord  = creatingNewCar("ford", fordDetails);
         System.out.println(secondFord);
-        Car mercedes  = creatingNewCar("mercedes", fordDetails);
+        Details mercedesDetails = new Details();
+        mercedesDetails.setEngine(MercedesEngines.MercedesEngineFirstType);
+        Car mercedes  = creatingNewCar("mercedes", mercedesDetails);
         System.out.println(mercedes);
-        Car lada  = creatingNewCar("lada", fordDetails);
+        mercedesDetails.setEngine(MercedesEngines.MercedesEngineSecondType);
+        Car secondMercedes  = creatingNewCar("mercedes", mercedesDetails);
+        System.out.println(secondMercedes);
+        Details ladaDetails = new Details();
+        ladaDetails.setBody(LadaBodies.LadaBodyFirstType);
+        Car lada  = creatingNewCar("lada", ladaDetails);
         System.out.println(lada);
+        ladaDetails.setBody(LadaBodies.LadaBodySecondType);
+        Car secondLada  = creatingNewCar("lada", ladaDetails);
+        System.out.println(secondLada);
         Car peugeot  = creatingNewCar("peugeot", fordDetails);
         System.out.println(peugeot);
         //fordDetails.setEngine();

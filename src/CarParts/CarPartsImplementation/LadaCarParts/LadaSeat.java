@@ -1,6 +1,7 @@
 package CarParts.CarPartsImplementation.LadaCarParts;
 
 import CarParts.CarSeat;
+import Parameters.Details;
 
 public class LadaSeat implements CarSeat {
 
@@ -14,6 +15,11 @@ public class LadaSeat implements CarSeat {
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public LadaSeat setDetails(Details details) {
+        return this;
     }
 
     @Override

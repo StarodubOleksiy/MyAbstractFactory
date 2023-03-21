@@ -1,6 +1,7 @@
 package CarParts.CarPartsImplementation.LadaCarParts;
 
 import CarParts.CarWheels;
+import Parameters.Details;
 
 public class LadaWheels implements CarWheels {
 
@@ -13,6 +14,11 @@ public class LadaWheels implements CarWheels {
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public LadaWheels setDetails(Details details) {
+        return this;
     }
 
     @Override

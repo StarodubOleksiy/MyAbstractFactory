@@ -8,7 +8,7 @@ public class FordEngineFirstType implements CarEngine {
     private String name;
 
     public FordEngineFirstType() {
-        this.name = "Ford engine of the first type";
+        this.name = "Ford engine of the first type1.";
     }
 
     @Override
